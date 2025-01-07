@@ -39,18 +39,18 @@ class Rezept:
 
 
 # Beispiel
-# zutat1 = Zutat("Tomate", 18, 5)
-# zutat2 = Zutat("Zwiebel", 40, 10)
-# zutat3 = Zutat("Knoblauch", 149, 2)
+zutat1 = Zutat("Tomate", 18, 5)
+zutat2 = Zutat("Zwiebel", 40, 10)
+zutat3 = Zutat("Knoblauch", 149, 2)
 
-# rezept = Rezept("Tomatensuppe", "Eine leckere Tomatensuppe.")
-# rezept.zutat_hinzufügen(zutat1, "200g")
-# rezept.zutat_hinzufügen(zutat2, "100g")
-# rezept.zutat_hinzufügen(zutat3, "10g")
+rezept = Rezept("Tomatensuppe", "Eine leckere Tomatensuppe.")
+rezept.zutat_hinzufügen(zutat1, "200g")
+rezept.zutat_hinzufügen(zutat2, "100g")
+rezept.zutat_hinzufügen(zutat3, "10g")
 
-# rezept.rezept_anzeigen()
-# rezept.kalorien()
-# rezept.kochzeit()
+rezept.rezept_anzeigen()
+rezept.kalorien()
+rezept.kochzeit()
 
 # Aufgabe 2
 
