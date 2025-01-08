@@ -1,9 +1,9 @@
 # Aufgabe 1.1
 class Zutat:
-    def __init__(self, name, kalorien_pro_100g, zubereitungszeit):
+    def __init__(self, name, kalorien, zeit):
         self.name = name
-        self.kalorien_pro_100g = kalorien_pro_100g
-        self.zubereitungszeit = zubereitungszeit
+        self.kalorien_pro_100g = kalorien
+        self.zubereitungszeit = zeit
 
 
 # Aufgabe 1.2
@@ -39,18 +39,22 @@ class Rezept:
 
 
 # Beispiel
-zutat1 = Zutat("Tomate", 18, 5)
-zutat2 = Zutat("Zwiebel", 40, 10)
-zutat3 = Zutat("Knoblauch", 149, 2)
+Tomate = Zutat("Tomate", 18, 5)
+Zwiebel = Zutat("Zwiebel", 40, 10)
+Knoblauch = Zutat("Knoblauch", 149, 2)
 
 rezept = Rezept("Tomatensuppe", "Eine leckere Tomatensuppe.")
-rezept.zutat_hinzufügen(zutat1, "200g")
-rezept.zutat_hinzufügen(zutat2, "100g")
-rezept.zutat_hinzufügen(zutat3, "10g")
+rezept.zutat_hinzufügen(Tomate, "200g")
+rezept.zutat_hinzufügen(Zwiebel, "100g")
+rezept.zutat_hinzufügen(Knoblauch, "10g")
 
 rezept.rezept_anzeigen()
 rezept.kalorien()
 rezept.kochzeit()
+
+# print(rezept.zutatenliste.items())
+
+# print(rezept.zutatenliste)
 
 # Aufgabe 2
 
