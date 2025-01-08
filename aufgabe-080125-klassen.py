@@ -12,7 +12,7 @@ class Haustier:
 
     def get_description(self):
         print(
-            f"{self.nameDesHaustier} ist ein {self.alterInJahren} alter {self.tierart}"
+            f"{self.nameDesHaustier} ist ein {self.alterInJahren} alter {self.tierart}, hat {self.energy_level} %."
         )
 
     def feed(self):
@@ -38,12 +38,14 @@ class Haustier:
         )
         verbrauch_energy = duration * 5
         if self.energy_level <= verbrauch_energy:
+            self.energy_level = self.energy_level - verbrauch_energy
             print(
                 f"{self.tierart} - {self.nameDesHaustier} ist müde, muss sich schlafen oder essen."
             )
         else:
+            self.energy_level = self.energy_level - verbrauch_energy
             print(
-                f"{self.tierart} - {self.nameDesHaustier} hat {duration} Minuten gespielt und hat jetzt {self.energy_level - verbrauch_energy} % Energie."
+                f"{self.tierart} - {self.nameDesHaustier} hat {duration} Minuten gespielt und hat jetzt {self.energy_level} % Energie."
             )
 
     def sleep(self):
@@ -54,10 +56,12 @@ class Haustier:
         )
         new_energy = relex * 20
         if self.energy_level + new_energy >= 100:
+            self.energy_level = 100
             print(f"{self.tierart} - {self.nameDesHaustier} ist wieder Da .")
         else:
+            self.energy_level = self.energy_level + new_energy
             print(
-                f"{self.tierart} - {self.nameDesHaustier} muss noch {int ((self.energy_level + new_energy ) / 20)} Stunden schlafen."
+                f"{self.tierart} - {self.nameDesHaustier} muss noch {self.energy_level / 20} Stunden schlafen."
             )
 
 
