@@ -61,7 +61,7 @@ class Haustier:
         else:
             self.energy_level = self.energy_level + new_energy
             print(
-                f"{self.tierart} - {self.nameDesHaustier} muss noch {self.energy_level / 20} Stunden schlafen."
+                f"{self.tierart} - {self.nameDesHaustier} muss noch {self.energy_level // 20} Stunden schlafen."
             )
 
 
