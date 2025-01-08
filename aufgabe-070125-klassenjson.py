@@ -56,8 +56,8 @@ rezept.kochzeit()
 
 import requests
 
-area_neme = input("Welche Stadt möchtest du wissen? ")
-response = requests.get(f"https://wttr.in/{area_neme}?format=j1")
+area_name = input("Welche Stadt möchtest du wissen? ")
+response = requests.get(f"https://wttr.in/{area_name}?format=j1")
 daten = response.json()
 # jetzt sind die json daten in der variable daten gespeichert
 # print(daten)
@@ -65,4 +65,4 @@ daten = response.json()
 temperatur = daten["current_condition"][0]["temp_C"]
 wetter = daten["current_condition"][0]["weatherDesc"][0]["value"]
 print(wetter)
-print(f"The weather in {area_neme} is {wetter} with {temperatur}°C")
+print(f"The weather in {area_name} is {wetter} with {temperatur}°C")
