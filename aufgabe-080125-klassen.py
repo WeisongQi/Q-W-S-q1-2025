@@ -43,7 +43,7 @@ class Haustier:
         )
         verbrauch_energy = duration * 5
         if self.energy_level <= verbrauch_energy:
-            self.energy_level = self.energy_level - verbrauch_energy
+            self.energy_level = 0
             print(
                 f"{self.tierart} - {self.nameDesHaustier} ist müde, muss sich schlafen oder essen."
             )
