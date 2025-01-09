@@ -12,22 +12,27 @@ class Haustier:
 
     def get_description(self):
         print(
-            f"{self.nameDesHaustier} ist ein {self.alterInJahren} alter {self.tierart}, hat {self.energy_level} %."
+            f"{self.nameDesHaustier} ist ein {self.alterInJahren} alter {self.tierart}, hat {self.energy_level} % Energy."
         )
 
     def feed(self):
-        f = input(
-            f"Bitte wählen Sie das Futter ({self.lieblingsessen} oder {self.food}) für {self.tierart} - {self.nameDesHaustier} : "
-        )
-        if f == self.lieblingsessen:
-            self.energy_level += 30
-            print(
-                f"{self.tierart} - {self.nameDesHaustier} liebt {self.lieblingsessen} ! Die Energy ist jetzt {self.energy_level} % ."
+        if self.energy_level < 100:
+            f = input(
+                f"Bitte wählen Sie das Futter ({self.lieblingsessen} oder {self.food}) für {self.tierart} - {self.nameDesHaustier} : "
             )
-        elif f == self.food:
-            self.energy_level += 10
+            if f == self.lieblingsessen:
+                self.energy_level += 30
+                print(
+                    f"{self.tierart} - {self.nameDesHaustier} liebt {self.lieblingsessen} ! Die Energy ist jetzt {self.energy_level} % ."
+                )
+            elif f == self.food:
+                self.energy_level += 10
+                print(
+                    f"{self.tierart} - {self.nameDesHaustier} hat {self.food} gegessen. Die Erergie ist jetzt {self.energy_level} % ."
+                )
+        else:
             print(
-                f"{self.tierart} - {self.nameDesHaustier} hat {self.food} gegessen. Die Erergie ist jetzt {self.energy_level} % ."
+                f"{self.tierart} - {self.nameDesHaustier} ist shchon satt, lass uns ein bisschen Bewegung machen. "
             )
 
     def play(self):
