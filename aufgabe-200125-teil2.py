@@ -45,5 +45,11 @@ def support():
     return "Besuche unsere Support-Seite unter support.example.com."
 
 
+# S-Route
+@w_s_app.route("/item/<product_id>, methods=['GET']")
+def get_item(product_id):
+    return f"Besuche unsere Support-Seite unter {product_id}."
+
+
 if __name__ == "__main__":
-    w_s_app.run(port=7000)
+    w_s_app.run(debug=True, port=7000)
