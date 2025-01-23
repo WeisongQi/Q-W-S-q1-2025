@@ -1,29 +1,31 @@
 from flask import Flask, request
+from date.users_list import users
 
 import json
-import os
+
+# import os
 
 app = Flask(__name__)
-users = {}
+# users = {}
 
 
-def save_users(users):
-    with open("data.users.json", "w") as file:
-        json.dump(users, file, indent=4)
+# def save_users(users):
+#     with open("data.users.json", "w") as file:
+#         json.dump(users, file, indent=4)
 
 
-def load_users():
-    if os.path.exists("date.users.json"):
-        with open("date.users.json", "r") as file:
-            return json.load(file)
-    else:
-        from date.users_list import users
+# def load_users():
+#     if os.path.exists("date.users.json"):
+#         with open("date.users.json", "r") as file:
+#             return json.load(file)
+#     else:
+#         from date.users_list import users
 
-        save_users(users)
-        return users
+#         save_users(users)
+#         return users
 
 
-users = load_users()
+# users = load_users()
 
 
 @app.route("/users/<int:user_id>", methods=["GET"])
@@ -87,7 +89,9 @@ def signup():
     new_user = request.get_json()
     new_user["id"] = max([u["id"] for u in users], default=0) + 1
     users.append(new_user)
-    save_users(users)
+    with open("date.users.json", "w") as file:
+        json.dump(users, file, indent=4)
+    # save_users(users)
     return f"User {new_user} added successfully"
 
 
@@ -97,7 +101,7 @@ def update_user(id):
     for u in users:
         if id == u["id"]:
             u.update(updated_user)
-            save_users(users)
+            # save_users(users)
             return f"User {updated_user} updated successfully"
     return "User not found"
 
@@ -108,7 +112,7 @@ def delete_user():
     for u in users:
         if user_name == u["username"]:
             users.remove(u)
-            save_users(users)
+            # save_users(users)
             return f"User {user_name} deleted successfully"
     return "User not found"
 
