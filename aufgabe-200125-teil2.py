@@ -46,7 +46,7 @@ def support():
 
 
 # S-Route
-@w_s_app.route("/item/<product_id>, methods=['GET']")
+@w_s_app.route("/item/<product_id>")
 def get_item(product_id):
     return f"Besuche unsere Support-Seite unter {product_id}."
 
