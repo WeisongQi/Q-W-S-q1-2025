@@ -47,16 +47,20 @@ Zusammenfassend lässt sich sagen, dass die sieben Prinzipien der DSGVO zusammen
 
 ## Aufgabe 2 Datensicherheit
 
-
+---
    ![SSL](./images/Screenshot%202025-02-04%20171452.png)
 
    ![SSL](./images/Screenshot%202025-02-04%20171619.png)
 
+---
+   > warum diese Methode ``unsicherer`` ist als eine Verschlüsselung mit einem zufälligen SSL-Key.
+
+      - Verwenden Sie eine zufällig generierte SSL-Verschlüsselung, da diese auf einem sicheren Zufallsprozess basiert, was die Wahrscheinlichkeit eines Bruchs erheblich verringert. Im Gegensatz dazu kann eine symmetrische Verschlüsselung mit einem nicht zufälligen Schlüssel anfälliger für Angriffe sein, da der Schlüssel voraussehbarer ist.
+
+---
 ● Warum wird für die Verschlüsselung ein „Salt“ hinzugefügt?
 
-   ---
-
-   Bei der Verwendung von OpenSSL zur Verschlüsselung wird der Salt-Parameter hauptsächlich hinzugefügt, um die Sicherheit der Verschlüsselung zu erhöhen. Konkret ist Salt eine Art von Zufallsdaten, die zusammen mit dem Passwort verwendet werden, um den Verschlüsselungsschlüssel durch eine Key-Derivation-Funktion zu generieren. Diese Methode bietet mehrere wichtige Vorteile:
+      Bei der Verwendung von OpenSSL zur Verschlüsselung wird der Salt-Parameter hauptsächlich hinzugefügt, um die Sicherheit der Verschlüsselung zu erhöhen. Konkret ist Salt eine Art von Zufallsdaten, die zusammen mit dem Passwort verwendet werden, um den Verschlüsselungsschlüssel durch eine Key-Derivation-Funktion zu generieren. Diese Methode bietet mehrere wichtige Vorteile:
 
       1. **Verhindert die Generierung des gleichen Schlüssels mit demselben Passwort**: Selbst wenn dasselbe Passwort verwendet wird, wird durch die Salzzugabe jedes Mal ein anderer Schlüssel generiert, wodurch die Sicherheit der Verschlüsselung erhöht wird und verhindert wird, dass Angreifer denselben Schlüssel verwenden, um mehrere Dateien zu entschlüsseln.
          
@@ -72,12 +76,10 @@ Zusammenfassend lässt sich sagen, dass die sieben Prinzipien der DSGVO zusammen
 
 ● Was passiert, wenn der symmetrische Schlüssel verloren geht?
 
-   ---
-
    > Daten nicht zugänglich:
 
       Auswirkungen: Ein symmetrischer Schlüssel ist der einzige Schlüssel für die Verschlüsselung und Entschlüsselung. Wenn der Schlüssel verloren geht, kann auf die verschlüsselten Daten nicht zugegriffen werden, was zu Datenverlust führt.
 
       Lösung: Stellen Sie sicher, dass Sie Backups haben oder verwenden Sie ein Schlüsselverwaltungssystem wie Hardware-Sicherheitsmodule (HSM) oder Cloud-Schlüsselverwaltungsdienste, um Schlüssel zu speichern und zu verwalten.
 
-      ---
+---
