@@ -14,3 +14,6 @@ str = input("Enter a string: ")
 # s_list = str.split(" ")
 
 print(string_list(str)[::-1])
+
+# Enter a string: a b c de sg
+# ['sg', 'de', 'c', 'b', 'a']
