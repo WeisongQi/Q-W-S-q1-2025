@@ -91,11 +91,11 @@ def buy_product(musername):
             user = u
             break
 
-    if user and "product" in user:
+    if "product" in user:
         decrypted_product = decrypt_value(user["product"])
         print(f"You have bought: {decrypted_product}")
     else:
-        print("No products found or user not logged in.")
+        print("No products found.")
 
 
 def main():
