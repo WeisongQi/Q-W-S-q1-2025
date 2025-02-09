@@ -126,6 +126,25 @@ def main():
             break
         elif choice == "5":
             print(users_list)
+        elif choice == "6":
+            for u in users_list:
+                print(
+                    "ID:",
+                    u["id"],
+                    ";\n",
+                    "Username:",
+                    u["username"],
+                    ";\n",
+                    "Passwort(Hash):",
+                    u["password"],
+                    ";\n",
+                    "Credit Card:",
+                    decrypt_value(u["credit_card"]),
+                    ";\n",
+                    "Warenkorb:",
+                    decrypt_value(u["product"]),
+                    ";\n",
+                )
         else:
             print("Invalid choice")
 
