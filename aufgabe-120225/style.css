@@ -4,10 +4,10 @@ body {
 
 .navbar {
     background-color: red;
-    width: 100vw;
+    width: 100vmax;
     height: 100px;
     box-sizing: border-box;
-    padding: 0;
+    padding: 10px;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -66,12 +66,13 @@ body {
 .mainArea {
     justify-content: flex-start;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     margin-bottom: 30px;   
   }
 
 .polaroid {
-    width: 23%;
+    width: 28%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 25px;
@@ -84,9 +85,10 @@ body {
   }
 
 .textContainer {
-    width: 90%; 
+    
+    max-width: fit-content; 
     background-color: #ffffff; 
-    padding: 30px; 
+    padding: 18px; 
     border: 1px solid #ddd; 
     border-radius: 8px; 
 }
