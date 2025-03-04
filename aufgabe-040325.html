@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Butten</title>
+  <style>
+  .container {
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    width: 500px;
+    margin: 50px auto;
+    box-sizing: border-box;
+  }
+
+  .block {
+    width: 33.33%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default; 
+    user-select: none;
+    box-sizing: border-box;
+  }
+
+  #block1 {
+    background-color: white;
+  }
+
+  #block2 {
+    background-color: white;
+  }
+
+  #block3 {
+    background-color: white;
+  }
+  </style>
+  
+</head>
+<body>
+  <button class="butten" onclick="changeColor(block1,block3)">Click me</button>
+  <div class="container">
+    <div class="block" id="block1"></div>
+    <div class="block" id="block2"></div>
+    <div class="block" id="block3"></div>      
+  </div>
+  <script>
+    
+    function changeColor(element1, element3) {
+      
+      let tempColor = element3.style.backgroundColor;
+      
+      element1.style.backgroundColor = 'blue';
+      element3.style.backgroundColor = 'red';
+      setTimeout(() => {
+        element1.style.backgroundColor = tempColor;
+        element3.style.backgroundColor = tempColor;
+      }, 1000);
+    }
+    const block1 = document.getElementById('block1');
+    const block3 = document.getElementById('block3');
+  </script>
+</body>
+</html>
