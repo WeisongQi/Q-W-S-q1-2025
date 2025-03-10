@@ -1,0 +1,32 @@
+.container {
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    width: 500px;
+    margin: 50px auto;
+    box-sizing: border-box;
+  }
+
+  .block {
+    width: 33.33%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    user-select: none;
+    box-sizing: border-box;
+  }
+
+  #block1 {
+    background-color: white;
+  }
+
+  #block2 {
+    background-color: white;
+  }
+
+  #block3 {
+    background-color: white;
+  }

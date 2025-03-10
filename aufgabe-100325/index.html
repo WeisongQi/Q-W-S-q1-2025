@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaß mit Listen</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="script.css">
+</head>
+<body>
+    <!-- 第一部分 -->
+    <div>
+        <input id="userInput" placeholder="Put in List items, divided with comma">
+        <button onclick="setUserInputList()">Elemente hinzufügen</button>
+        <br>
+        <input id="singleInput" placeholder="Put in a single item">
+        <button onclick="addSingleItem()">Einzelnes Element hinzufügen</button>
+    </div>
+    <!-- 第二部分 -->
+    <div>
+        <h3>Liste der Elemente:</h3>
+        <button class="button" onclick="changeColor()">Click me</button>
+        <div id="liste"></div>
+        <div class="container">
+            <div class="block" id="block1"></div>
+            <div class="block" id="block2"></div>
+            <div class="block" id="block3"></div>
+        </div>
+    </div>
+    <!-- 第三部分 -->
+    <div>
+        <button onclick="removeLastItem()">Letztes Element entfernen</button>
+    </div>
+    <!-- 第四部分 -->
+    <div>
+        <h3>Element nach Index entfernen:</h3>
+        <button onclick="removeItemByIndex(0)">0</button>
+        <button onclick="removeItemByIndex(1)">1</button>
+        <button onclick="removeItemByIndex(2)">2</button>
+        <button onclick="removeItemByIndex(3)">3</button>
+        <button onclick="removeItemByIndex(4)">4</button>
+    </div>
+</body>
+</html>

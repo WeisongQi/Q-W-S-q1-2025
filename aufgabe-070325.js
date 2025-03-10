@@ -17,6 +17,8 @@ console.log(arr.length);
 
 // 使用 map()
 // 创建一个新数组，其结果是对原数组中的每个元素调用一个提供的函数后的返回值。
+// 本例中，将数组中的每个元素乘以 2。也可以是其他操作。比如布尔值、字符串等。
+// 关键是括号内指定的操作，如果是判断就是返回布尔值。
 let mappedArr = arr.map(x => x * 2);
 console.log(mappedArr);
 
@@ -26,7 +28,7 @@ let newArr = Array.of(6, 7, 8);
 console.log(newArr);
 
 // 使用 pop()
-// 移除数组的最后一个元素，并返回该元素。
+// 移除数组的最后一个元素，并返回该数组剩余元素。
 arr.pop();
 console.log(arr);
 
@@ -76,7 +78,7 @@ console.log(arr);
 
 // 使用 splice()
 // 通过删除或替换现有元素或添加新元素来更改一个数组的内容。
-arr.splice(1, 1, 9);
+arr.splice(1, 1, 10, 11);
 console.log(arr);
 
 // 使用 toReversed()
