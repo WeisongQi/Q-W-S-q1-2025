@@ -15,3 +15,12 @@ input {
     margin: 8px 0;
     box-sizing: border-box;
 }
+
+.b {
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    height: 70px;
+}
