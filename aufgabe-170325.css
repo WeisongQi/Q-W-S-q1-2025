@@ -1,0 +1,33 @@
+header h1{
+    color:rosybrown;
+}
+
+ul li{
+    color:blue;
+}
+
+h2 + p{
+    background-color: bisque;
+}
+
+h2 ~ ul{
+    background-color: lightblue;
+}
+
+h2:hover{
+    color: red;
+}
+
+p::first-letter {
+    color: #ff0000;
+    font-size: xx-large;
+  }
+
+input[type="email"] {
+    background-color: lightgray;
+    color: black;
+}
+input[type="text"] {
+    background-color: lightgray;
+    color: black;
+}
