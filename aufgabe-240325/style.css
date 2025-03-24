@@ -1,0 +1,148 @@
+body {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.left-section {
+    width: 30%;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.right-section {
+    width: 70%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#category {
+    width: 100%;
+    padding: 8px;
+}
+
+.input-group input:required {
+    box-shadow: none;
+}
+
+.input-group input:invalid {
+    border-color: #ff4444;
+}
+
+#addButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#addButton:hover {
+    background-color: #45a049;
+}
+
+.list-section {
+    flex: 1;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.scrollable {
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.shopping-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.shopping-item:hover {
+    background-color: #f5f5f5;
+}
+
+.delete-btn {
+    margin-left: auto;
+    padding: 4px 8px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.budget-display {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.save-section {
+    background-color: wheat;
+    padding: 20px;
+    border-radius: 8px;
+    height: 40%;
+}
+
+#saveButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#saveButton:hover {
+    background-color: #45a049;
+}
+
+.list-header {
+    margin-bottom: 10px;
+}
+
+#sortButton {
+    padding: 8px 16px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#sortButton:hover {
+    background-color: #007399;
+}

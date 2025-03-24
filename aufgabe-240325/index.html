@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧输入区域 -->
+        <div class="left-section">
+            <h2>Shopping Information</h2>
+            <div class="input-group">
+                <label>Budget:</label>
+                <input type="number" id="budget" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label>Category:</label>
+                <select id="category" required>
+                    <option value="Food">Food</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="input-group">
+                <label>Quantity:</label>
+                <input type="number" id="quantity" step="1" required>
+            </div>
+            <div class="input-group">
+                <label>Price:</label>
+                <input type="number" id="price" step="0.01" required>
+            </div>
+            <button id="addButton">Add Item</button>
+        </div>
+
+        <!-- 右侧显示区域 -->
+        <div class="right-section">
+            <!-- 上部物品列表 -->
+            <div class="list-section">
+                <div class="list-header">
+                    <button id="sortButton">Sort and Merge</button>
+                </div>
+                <div id="shoppingList" class="scrollable"></div>
+                <div class="budget-display">
+                    <span id="totalBudget"></span>
+                </div>
+            </div>
+
+            <!-- 下部保存区域 -->
+            <div class="save-section">
+                <button id="saveButton">Save to Local</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
