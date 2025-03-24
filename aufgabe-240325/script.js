@@ -80,10 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             li.innerHTML = `
                 <input type="checkbox" ${item.selected ? 'checked' : ''}>
-                <span>Category: ${item.category} ;    </span>
-                <span>Name: ${item.name} ;   </span>
-                <span>Quantity: ${item.quantity} ;   </span>
-                <span>Price: ${item.price.toFixed(2)}</span>
+                <span >Category : ${item.category} ;</span>&nbsp;
+                <span >Name : ${item.name} ;</span>&nbsp;
+                <span >Quantity : ${item.quantity} ;</span>&nbsp;
+                <span >Price : ${item.price.toFixed(2)} .</span>
                 <button class="delete-btn">Delete</button>
             `;
 
