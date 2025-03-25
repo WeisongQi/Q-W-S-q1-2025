@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentBudget = 0;
 
     // Initialize budget
-    budgetInput.addEventListener('change', (e) => {
-        currentBudget = parseFloat(e.target.value);
+    budgetInput.addEventListener('change', () => {
+        currentBudget = parseFloat(budgetInput.value);
         updateBudgetDisplay();
     });
 
