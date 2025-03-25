@@ -123,13 +123,4 @@ document.addEventListener('DOMContentLoaded', () => {
             <span style="${color}"> | ${status}</span>
         `;
     }
-
-    // Enter key input signal
-    document.querySelectorAll('input').forEach(input => {
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && input.id === 'price') {
-                addButton.click();
-            }
-        });
-    });
 });
