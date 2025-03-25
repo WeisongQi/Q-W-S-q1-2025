@@ -58,9 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Save to local
     saveButton.addEventListener('click', () => {
+        const selectedItems = items.filter(item => item.selected);
         const date = new Date().toISOString().split('T')[0];
         const filename = `${date}_shoppinglist.json`;
-        const jsonContent = JSON.stringify(items, null, 2);
+        const jsonContent = JSON.stringify(selectedItems, null, 2);
 
         const blob = new Blob([jsonContent], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
