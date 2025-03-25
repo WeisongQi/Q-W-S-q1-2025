@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Forex Price Query</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+        }
+
+        .left-section {
+            width: 40%;
+            padding: 20px;
+            margin-right: 20px;
+        }
+
+        .right-section {
+            width: 60%;
+            padding: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .exchange-rate {
+            border: 2px solid blue;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-section">
+        <h2>Forex Price Query</h2>
+        <div class="input-group">
+            <input type="text" id="currencyInput" placeholder="Enter currency code (e.g., CNY)">
+            <button onclick="queryExchangeRate()">Query</button>
+        </div>
+        <div class="exchange-rate" id="exchangeRateDisplay">
+            <h3>Real-time Exchange Rate</h3>
+            <p id="currentRate"></p>
+            <p id="refreshCountdown"></p>
+        </div>
+        <div class="result" id="queryResult"></div>
+        <div class="error" id="errorMessage"></div>
+    </div>
+
+    <div class="right-section">
+        <h2>G20 Countries Currency Information</h2>
+        <table id="currencyTable">
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Currency Name</th>
+                    <th>Currency Code</th>
+                </tr>
+            </thead>
+            <tbody id="currencyTableBody">
+                <!-- 表格内容将通过JavaScript动态生成 -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // 汇率API的基本URL
+        const BASE_URL = 'https://v6.exchangerate-api.com/v6/cb13e121121625a0c80c84d0/latest/USD';
+
+        // 用于存储自动刷新的计时器ID
+        let refreshIntervalId;
+        let lastRefreshTime = new Date();
+
+        // G20国家的货币信息
+        const currencies = {
+            "G20": [
+                { country: 'USA', currency: 'Dollar', code: 'USD' },
+                { country: 'Canada', currency: 'Canadian Dollar', code: 'CAD' },
+                { country: 'UK', currency: 'Pound', code: 'GBP' },
+                { country: 'Germany', currency: 'Euro', code: 'EUR' },
+                { country: 'Japan', currency: 'Yen', code: 'JPY' },
+                { country: 'France', currency: 'Euro', code: 'EUR' },
+                { country: 'India', currency: 'Rupee', code: 'INR' },
+                { country: 'Italy', currency: 'Euro', code: 'EUR' },
+                { country: 'China', currency: 'Yuan', code: 'CNY' },
+                { country: 'Brazil', currency: 'Real', code: 'BRL' },
+                { country: 'Russia', currency: 'Ruble', code: 'RUB' },
+                { country: 'South Korea', currency: 'Won', code: 'KRW' },
+                { country: 'Australia', currency: 'Dollar', code: 'AUD' },
+                { country: 'Mexico', currency: 'Peso', code: 'MXN' },
+                { country: 'South Africa', currency: 'Rand', code: 'ZAR' },
+                { country: 'Turkey', currency: 'Lira', code: 'TRY' },
+                { country: 'Saudi Arabia', currency: 'Riyal', code: 'SAR' },
+                { country: 'Argentina', currency: 'Peso', code: 'ARS' },
+                { country: 'Indonesia', currency: 'Rupiah', code: 'IDR' }
+            ]
+        };
+
+        // 初始化货币信息表格
+        function initializeCurrencyTable() {
+            const tableBody = document.getElementById('currencyTableBody');
+            tableBody.innerHTML = '';
+
+            // 添加G20国家
+            const g20Countries = currencies['G20'];
+            g20Countries.forEach(country => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${country.country}</td>
+                    <td>${country.currency}</td>
+                    <td>${country.code}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 获取并显示当前汇率
+        function updateCurrentRate() {
+            fetch('https://v6.exchangerate-api.com/v6/cb13e121121625a0c80c84d0/latest/USD')
+                .then(response => response.json())
+                .then(data => {
+                    const currentRateElement = document.getElementById('currentRate');
+                    const cnyRate = data.conversion_rates.CNY; // 获取相对于美元的人民币汇率
+                    const eurRate = data.conversion_rates.EUR; // 获取相对于美元的欧元汇率
+                    if (cnyRate && eurRate) {
+                        currentRateElement.innerHTML = `
+                            1 USD = ${cnyRate} CNY<br>
+                            1 USD = ${eurRate} EUR<br>
+                            1 EUR = ${(cnyRate / eurRate).toFixed(4)} CNY
+                        `;
+                    } else {
+                        currentRateElement.innerHTML = '未找到人民币或欧元的汇率';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('currentRate').innerHTML = '查询失败，请检查网络连接';
+                });
+        }
+
+        // 计算倒计时
+        function updateCountdown() {
+            const now = new Date();
+            const nextRefresh = new Date(now);
+            nextRefresh.setHours(9, 0, 0, 0);
+            if (nextRefresh < now) {
+                nextRefresh.setDate(nextRefresh.getDate() + 1);
+            }
+
+            const diff = nextRefresh - now;
+            const hours = Math.floor(diff / 1000 / 60 / 60);
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('refreshCountdown').innerHTML =
+                `Next update: ${hours} hours ${minutes} minutes ${seconds} seconds`;
+        }
+
+        // 查询指定货币的汇率
+        function queryExchangeRate() {
+            const currencyInput = document.getElementById('currencyInput');
+            const currencyCode = currencyInput.value.toUpperCase().trim();
+            const resultDiv = document.getElementById('queryResult');
+            const errorMessageDiv = document.getElementById('errorMessage');
+
+            if (!currencyCode) {
+                errorMessageDiv.innerHTML = 'Please enter a currency code';
+                return;
+            }
+
+            fetch(`https://v6.exchangerate-api.com/v6/cb13e121121625a0c80c84d0/pair/USD/${currencyCode}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network error');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const rate = data.conversion_rate; // 获取相对于美元的汇率
+                    if (rate) {
+                        resultDiv.innerHTML = `1 USD = ${rate} ${currencyCode}`;
+                        errorMessageDiv.innerHTML = '';
+                    } else {
+                        errorMessageDiv.innerHTML = 'Exchange rate not found for this currency';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    errorMessageDiv.innerHTML = 'Query failed, please check network connection or currency code';
+                });
+        }
+
+        // 初始化自动刷新
+        function initializeAutoRefresh() {
+            // 初始加载时更新一次
+            updateCurrentRate();
+            updateCountdown();
+
+            // 设置定时器，每8小时刷新一次
+            const eightHours = 8 * 60 * 60 * 1000; // 8小时
+            refreshIntervalId = setInterval(() => {
+                updateCurrentRate();
+                updateCountdown();
+            }, eightHours);
+
+            // 设置倒计时刷新
+            setInterval(updateCountdown, 1000);
+        }
+
+        // 页面加载完成时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCurrencyTable();
+            initializeAutoRefresh();
+        });
+    </script>
+</body>
+</html>
