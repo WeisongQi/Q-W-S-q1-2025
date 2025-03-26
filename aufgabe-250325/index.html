@@ -89,7 +89,6 @@
         <div class="exchange-rate" id="exchangeRateDisplay">
             <h3>Real-time Exchange Rate</h3>
             <p id="currentRate"></p>
-            <p id="refreshCountdown"></p>
         </div>
         <div class="result" id="queryResult"></div>
         <div class="error" id="errorMessage"></div>
@@ -114,10 +113,6 @@
     <script>
         // 汇率API的基本URL
         const BASE_URL = 'https://v6.exchangerate-api.com/v6/cb13e121121625a0c80c84d0/latest/USD';
-
-        // 用于存储自动刷新的计时器ID
-        let refreshIntervalId;
-        let lastRefreshTime = new Date();
 
         // G20国家的货币信息
         const currencies = {
@@ -186,24 +181,6 @@
                 });
         }
 
-        // 计算倒计时
-        function updateCountdown() {
-            const now = new Date();
-            const nextRefresh = new Date(now);
-            nextRefresh.setHours(9, 0, 0, 0);
-            if (nextRefresh < now) {
-                nextRefresh.setDate(nextRefresh.getDate() + 1);
-            }
-
-            const diff = nextRefresh - now;
-            const hours = Math.floor(diff / 1000 / 60 / 60);
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('refreshCountdown').innerHTML =
-                `Next update: ${hours} hours ${minutes} minutes ${seconds} seconds`;
-        }
-
         // 查询指定货币的汇率
         function queryExchangeRate() {
             const currencyInput = document.getElementById('currencyInput');
@@ -238,27 +215,10 @@
                 });
         }
 
-        // 初始化自动刷新
-        function initializeAutoRefresh() {
-            // 初始加载时更新一次
-            updateCurrentRate();
-            updateCountdown();
-
-            // 设置定时器，每8小时刷新一次
-            const eightHours = 8 * 60 * 60 * 1000; // 8小时
-            refreshIntervalId = setInterval(() => {
-                updateCurrentRate();
-                updateCountdown();
-            }, eightHours);
-
-            // 设置倒计时刷新
-            setInterval(updateCountdown, 1000);
-        }
-
         // 页面加载完成时初始化
         document.addEventListener('DOMContentLoaded', function() {
             initializeCurrencyTable();
-            initializeAutoRefresh();
+            updateCurrentRate();
         });
     </script>
 </body>
