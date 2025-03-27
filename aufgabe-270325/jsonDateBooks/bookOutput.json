@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Harry Potter",
+    "author": "J.K. Rowling"
+  },
+  {
+    "id": 2,
+    "title": "Der Herr der Ringe",
+    "author": "J.R.R. Tolkien"
+  },
+  {
+    "id": 3,
+    "title": "Der kleine Prinz",
+    "author": "Antoine de Saint-Exupéry"
+  },
+  {
+    "id": 4,
+    "title": "Mathematik für Informatiker",
+    "author": "Gerald Teschl"
+  },
+  {
+    "id": 5,
+    "title": "Logik für Informatiker",
+    "author": "Uwe Schöning"
+  }
+]
