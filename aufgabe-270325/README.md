@@ -6,6 +6,12 @@ Dieses Projekt ist eine einfache REST-API, die mit Express.js erstellt wurde. Si
 
 ---
 
+### Wichtige Hinweise
+
+- **Reihenfolge der Routen**:
+  Beim Programmieren der API ist es wichtig, dass die Route `/books/search` vor der Route `/books/:id` definiert wird. Andernfalls wird die `/books/search`-Route nicht funktionieren, da die `/books/:id`-Route alle Anfragen mit einem Parameter nach `/books/` abfängt.
+
+---
 ### Installation
 
 1. Stellen Sie sicher, dass Node.js und npm auf Ihrem System installiert sind.
@@ -57,13 +63,6 @@ Dieses Projekt ist eine einfache REST-API, die mit Express.js erstellt wurde. Si
      }
      ```
    - Antwort: Die aktualisierte Liste aller Bücher.
-
----
-
-### Wichtige Hinweise
-
-- **Reihenfolge der Routen**:
-  Beim Programmieren der API ist es wichtig, dass die Route `/books/search` vor der Route `/books/:id` definiert wird. Andernfalls wird die `/books/search`-Route nicht funktionieren, da die `/books/:id`-Route alle Anfragen mit einem Parameter nach `/books/` abfängt.
 
 ---
 
