@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "apple",
+    "sorten": "B",
+    "art": "obst"
+  },
+  {
+    "id": 2,
+    "name": "wok",
+    "sorten": "A",
+    "art": "Geschirr"
+  },
+  {
+    "id": 3,
+    "name": "Annas",
+    "sorten": "B",
+    "art": "obst"
+  },
+  {
+    "id": 5,
+    "name": "wuerst",
+    "sorten": "B",
+    "art": "fleisch"
+  }
+]
