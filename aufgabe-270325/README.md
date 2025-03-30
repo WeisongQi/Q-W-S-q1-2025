@@ -12,15 +12,19 @@ Dieses Projekt ist eine einfache REST-API, die mit Express.js erstellt wurde. Si
   Beim Programmieren der API ist es wichtig, dass die Route `/books/search` vor der Route `/books/:id` definiert wird. Andernfalls wird die `/books/search`-Route nicht funktionieren, da die `/books/:id`-Route alle Anfragen mit einem Parameter nach `/books/` abfängt.
 
 ---
+
 ### Installation
 
 1. Stellen Sie sicher, dass Node.js und npm auf Ihrem System installiert sind.
 2. Klonen Sie das Repository und navigieren Sie in das Projektverzeichnis:
+
    ```bash
    git clone <repository-url>
    cd aufgabe-270325
    ```
+
 3. Installieren Sie die Abhängigkeiten:
+
    ```bash
    npm install
    ```
@@ -30,9 +34,11 @@ Dieses Projekt ist eine einfache REST-API, die mit Express.js erstellt wurde. Si
 ### Nutzung
 
 1. Starten Sie den Server:
+
    ```bash
    npm start
    ```
+
 2. Die API ist unter `http://localhost:5400` verfügbar.
 
 ---
@@ -64,6 +70,7 @@ Dieses Projekt ist eine einfache REST-API, die mit Express.js erstellt wurde. Si
        "author": "Autorname"
      }
      ```
+
    - Antwort: Die aktualisierte Liste aller Bücher.
 
 ---
@@ -98,11 +105,14 @@ Dieses Projekt ist unter der ISC-Lizenz veröffentlicht.
 
 1. 确保您的系统已安装 Node.js 和 npm。
 2. 克隆此仓库并进入项目目录：
+
    ```bash
    git clone <repository-url>
    cd aufgabe-270325
    ```
+
 3. 安装依赖：
+
    ```bash
    npm install
    ```
@@ -112,9 +122,11 @@ Dieses Projekt ist unter der ISC-Lizenz veröffentlicht.
 ### 使用
 
 1. 启动服务器：
+
    ```bash
    npm start
    ```
+
 2. API 可通过 `http://localhost:5400` 访问。
 
 ---
@@ -138,12 +150,14 @@ Dieses Projekt ist unter der ISC-Lizenz veröffentlicht.
 4. **添加新书籍**
    - **POST** `/books`
    - 请求体 (JSON)：
+
      ```json
      {
        "title": "书名",
        "author": "作者"
      }
      ```
+
    - 返回：更新后的所有书籍列表。
 
 ---
