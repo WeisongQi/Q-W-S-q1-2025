@@ -59,9 +59,18 @@ app.put("/produkte/:id", (req, res) => {
     const newSorten = req.body.sorten;
     const newArt = req.body.art;
     const up_Producte = products.find(product => product.id == id);
-    up_Producte.name = newName;
-    up_Producte.sorten = newSorten;
-    up_Producte.art = newArt;
+    if (newName == undefined) { up_Producte.name = products.name }
+    else {
+        up_Producte.name = newName
+    };
+    if (newSorten == undefined) { up_Producte.sorten = products.sorten }
+    else {
+        up_Producte.sorten = newSorten
+    };
+    if (newArt == undefined) { up_Producte.art = products.art }
+    else {
+        up_Producte.art = newArt
+    };
     res.json(up_Producte);
     writeData(products);
 })
