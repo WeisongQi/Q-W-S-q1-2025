@@ -56,7 +56,9 @@ Dieses Projekt ist eine einfache REST-API, die mit Express.js erstellt wurde. Si
 4. **Hinzufügen eines neuen Buches**
    - **POST** `/books`
    - Body (JSON):
+
      ```json
+
      {
        "title": "Buchtitel",
        "author": "Autorname"
