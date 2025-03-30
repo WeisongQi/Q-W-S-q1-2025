@@ -13,14 +13,11 @@
   },
   {
     "id": 3,
-    "name": "Annas",
-    "sorten": "B",
-    "art": "obst"
+    "name": "orange",
+    "sorten": "B"
   },
   {
-    "id": 5,
-    "name": "wuerst",
-    "sorten": "B",
-    "art": "fleisch"
+    "id": 4,
+    "art": "obst"
   }
 ]
