@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkte ViewSeit</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧输入及修改区域 -->
+        <div class="left-section">
+            <h2>New Product Entry</h2>
+            <div class="input-group">
+                <label>Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="input-group">
+                <label>Category:</label>
+                <select id="category" required>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Art:</label>
+                <input type="text" id="art" required>
+            </div>
+            <button id="addButton">Add Product</button>
+
+            <h2>Modify Product</h2>
+            <div class="input-group">
+                <label>ID:</label>
+                <input type="number" id="modifyId" required>
+            </div>
+            <div class="input-group">
+                <label>New Name:</label>
+                <input type="text" id="modifyName">
+            </div>
+            <div class="input-group">
+                <label>New Category:</label>
+                <select id="modifyCategory">
+                    <option value="">-- Select --</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>New Art:</label>
+                <input type="text" id="modifyArt">
+            </div>
+            <button id="modifyButton">Modify Product</button>
+
+            <h2>Delete Product</h2>
+            <div class="input-group">
+                <label>ID:</label>
+                <input type="number" id="deleteId" required>
+            </div>
+            <button id="deleteButton">Delete Product</button>
+        </div>
+
+        <!-- 右侧显示区域 -->
+        <div class="right-section">
+            <h2>Product List</h2>
+            <table id="productTable" border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Art</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 动态生成的产品行 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

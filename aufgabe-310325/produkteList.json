@@ -1,0 +1,32 @@
+[
+  {
+    "id": 755363,
+    "name": "Akku",
+    "sorten": "A",
+    "art": "Electik"
+  },
+  {
+    "id": 609884,
+    "name": "Annas",
+    "sorten": "B",
+    "art": "OBST"
+  },
+  {
+    "id": 343620,
+    "name": "wok",
+    "sorten": "A",
+    "art": "Geschirr"
+  },
+  {
+    "id": 409544,
+    "name": "Apple",
+    "sorten": "B",
+    "art": "OBST"
+  },
+  {
+    "id": 532349,
+    "name": "ssd",
+    "sorten": "A",
+    "art": "Elekitik"
+  }
+]
